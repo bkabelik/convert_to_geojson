@@ -6,7 +6,8 @@ batch converts intermaps json to geojson. python convert_to_multipoint.py input 
 "c:\OSGeo4W\bin\python-qgis.bat" create_heatmap_cli.py -i e:\saison_geojson_output -o e:\saison_geojson_output\output -r 0.0017966 -p 0.00017966
 ----------------
 
-"""
+
+
 import os
 from qgis.core import (
     QgsRasterLayer, 
@@ -20,13 +21,11 @@ from qgis.core import (
     QgsStyle
 )
 
-# --- CONFIGURATION ---
 input_folder = r'C:\Path\To\Your\Input\Tiffs'  # Folder with your .tif files
 output_folder = r'C:\Path\To\Your\Output'      # Folder for exported images
 resolution = 0.00017966                        # As per your first screenshot
 target_crs_authid = 'EPSG:4326'
 
-# Export Compression Settings
 create_options = [
     "COMPRESS=DEFLATE",
     "PREDICTOR=2",
@@ -70,7 +69,6 @@ def apply_turbo_symbology(layer):
     layer.setRenderer(renderer)
     layer.triggerRepaint()
 
-# --- MAIN LOOP ---
 if not os.path.exists(output_folder):
     os.makedirs(output_folder)
 
@@ -116,4 +114,4 @@ for filename in os.listdir(input_folder):
             print(f"Error saving {filename}: {error}")
 
 print("Done!")
-"""
+
