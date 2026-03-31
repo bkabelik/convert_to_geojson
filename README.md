@@ -6,7 +6,7 @@ batch converts intermaps json to geojson. python convert_to_multipoint.py input 
 "c:\OSGeo4W\bin\python-qgis.bat" create_heatmap_cli.py -i e:\saison_geojson_output -o e:\saison_geojson_output\output -r 0.0017966 -p 0.00017966
 ----------------
 
-
+"""
 import os
 from qgis.core import (
     QgsRasterLayer, 
@@ -116,3 +116,4 @@ for filename in os.listdir(input_folder):
             print(f"Error saving {filename}: {error}")
 
 print("Done!")
+"""
